@@ -140,10 +140,16 @@
                 <a href="#reportesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Reportes</a>
                 <ul class="collapse list-unstyled" id="reportesSubmenu">
                     <li>
-                        <a href="{{ route('reportes.list') }}">Ver reportes</a>
+                        <a href="{{ route('reportes.venta_mes') }}">Ventas por mes</a>
                     </li>
                     <li>
-                        <a href="{{ route('compras.add') }}">Crear compra</a>
+                        <a href="{{ route('reportes.actividades_menos') }}">Actividades menos incluidas</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('reportes.planes_cargos') }}">Planes con cargos</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('reportes.planes_clientes') }}">Planes por cliente</a>
                     </li>
                 </ul>
             </li>

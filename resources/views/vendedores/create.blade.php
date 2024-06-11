@@ -8,7 +8,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <form method="GET" action="{{ route('planes.verify2') }}">
+                        <form method="GET" action="{{ route('vendedores.verify2') }}">
                             <div class="form-group">
                                 <label for="password">Contraseña</label>
                                 <input type="password" class="form-control" id="password" name="password" required>

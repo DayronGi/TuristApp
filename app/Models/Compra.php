@@ -34,4 +34,9 @@ class Compra extends Model
     {
         return $this->belongsTo(Vendedor::class, 'vendedorid', 'vendedorid');
     }
+
+    public function detalle(): BelongsTo
+    {
+        return $this->belongsTo(DetalleCompra::class, 'compraid', 'compraid');
+    }
 }

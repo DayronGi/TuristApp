@@ -89,5 +89,8 @@ Route::controller(CompraController::class)->group(function() {
 });
 
 Route::controller(ReporteController::class)->group(function() {
-    Route::get('/reportes', 'reportes')->name('reportes.list');
+    Route::get('reportes/venta_mes', 'venta_mes')->name('reportes.venta_mes');
+    Route::get('reportes/actividades_menos', 'actividades_menos')->name('reportes.actividades_menos');
+    Route::get('reportes/planes_cargos', 'planes_cargos')->name('reportes.planes_cargos');
+    Route::get('reportes/planes_clientes', 'planes_clientes')->name('reportes.planes_clientes');
 });
