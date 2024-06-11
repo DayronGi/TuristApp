@@ -11,10 +11,15 @@ class Vendedor extends Model
 
     protected $table = 'vendedores';
 
+    protected $primaryKey = 'vendedorid';
+
     protected $fillable = [
+        'nombre',
         'correo',
-        'telefono',
-        'password'
+        'fechanacimiento',
+        'teléfono',
+        'usuario',
+        'contraseña'
     ];
 
     public $timestamps = false;

@@ -33,37 +33,37 @@ class VendedorController extends Controller
     public function store(Request $request)
     {
         $vendedor = new Vendedor();
-        $vendedor->id = $request->id;
+        $vendedor->vendedorid = $request->vendedorid;
         $vendedor->nombre = $request->nombre;
         $vendedor->correo = $request->correo;
-        $vendedor->fecha_nacimiento = $request->fecha_nacimiento;
-        $vendedor->telefono = $request->telefono;
-        $vendedor->username = $request->password;
-        $vendedor->password = $request->password;
+        $vendedor->fechanacimiento = $request->fechanacimiento;
+        $vendedor->teléfono = $request->teléfono;
+        $vendedor->usuario = $request->usuario;
+        $vendedor->contraseña = $request->contraseña;
         $vendedor->save();
         return redirect()->route('vendedores.list');
     }
 
     public function edit($id)
     {
-        $vendedor = Vendedor::findOrFail($id);
+        $vendedor = Vendedor::where('vendedorid', $id)->first();
         return view('vendedores.edit', compact('vendedor'));
     }
 
     public function update(Request $request, $id)
     {
-        $vendedor = Vendedor::findOrFail($id);
+        $vendedor = Vendedor::where('vendedorid', $id)->first();
         $vendedor->update([
             'correo' => $request->input('correo'),
-            'telefono' => $request->input('telefono'),
-            'password' => $request->input('password'),
+            'teléfono' => $request->input('telefono'),
+            'contraseña' => $request->input('contraseña'),
         ]);
         return redirect()->route('vendedores.adm');
     }
 
     public function destroy($id)
     {
-        $vendedor = Vendedor::findOrFail($id);
+        $vendedor = Vendedor::where('vendedorid', $id)->first();
         $vendedor->delete();
         return redirect()->route('vendedores.adm');
     }

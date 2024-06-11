@@ -22,7 +22,7 @@ class AuthController extends Controller
         $username = $request->input('username');
         $password = $request->input('password');
 
-        $vendedor = DB::table('vendedores')->where('username', $username)->where('password', $password)->first();
+        $vendedor = DB::table('vendedores')->where('usuario', $username)->where('contraseña', $password)->first();
 
         if ($vendedor) {
             return redirect()->route('planes.list');

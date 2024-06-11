@@ -11,10 +11,12 @@ class Cliente extends Model
 
     protected $table = 'clientes';
 
+    protected $primaryKey = 'clienteid';
+
     protected $fillable = [
         'correo',
-        'telefono_1',
-        'telefono_2'
+        'teléfono1',
+        'teléfono2'
     ];
 
     public $timestamps = false;

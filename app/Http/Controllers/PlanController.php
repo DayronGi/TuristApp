@@ -32,36 +32,43 @@ class PlanController extends Controller
     public function store(Request $request)
     {
         $plan = new Plan();
-        $plan->titulo = $request->titulo;
-        $plan->descripcion = $request->descripcion;
-        $plan->fecha_creacion = \Carbon\Carbon::now();
-        $plan->duracion_dias = $request->duracion_dias;
-        $plan->id_alimentacion = 1;
-        $plan->id_estado = 1;
+        $plan->título = $request->título;
+        $plan->descripción = $request->descripción;
+        $plan->duración = $request->duración;
+        $plan->incluyedesayuno = $request->incluyedesayuno;
+        $plan->incluyealmuerzo = $request->incluyealmuerzo;
+        $plan->incluyecena = $request->incluyecena;
+        $plan->estado = 'Activo';
+        $plan->fechacreación = \Carbon\Carbon::now();
         $plan->save();
         return redirect()->route('planes.list');
     }
 
     public function edit($id)
     {
-        $plan = Plan::findOrFail($id);
+        $plan = Plan::where('planid', $id)->first();
         return view('planes.edit', compact('plan'));
     }
 
 
     public function update(Request $request, $id) {
-        $plan = Plan::findOrFail($id);
+        $plan = Plan::where('planid', $id)->first();
         $plan->update([
-            'titulo' => $request->input('titulo'),
-            'descripcion' => $request->input('descripcion'),
-            'fecha_modificacion' => \Carbon\Carbon::now()
+            'título' => $request->input('título'),
+            'descripción' => $request->input('descripción'),
+            'duración' => $request->input('duración'),
+            'incluyedesayuno' => $request->input('incluyedesayuno'),
+            'incluyealmuerzo' => $request->input('incluyealmuerzo'),
+            'incluyecena' => $request->input('incluyecena'),
+            'estado' => $request->input('estado'),
+            'fechamodificación' => \Carbon\Carbon::now()
         ]);
         return redirect()->route('planes.adm');
     }
 
     public function destroy($id)
     {
-        $plan = Plan::findORFail($id);
+        $plan = Plan::where('planid', $id)->first();
         $plan->delete();
         return redirect()->route('planes.adm');
     }

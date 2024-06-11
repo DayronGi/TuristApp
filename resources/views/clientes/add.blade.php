@@ -1,36 +1,52 @@
 @extends('layouts.layout')
 @section('content')
-<form method="POST" action="{{ route('clientes.store') }}">
-    @csrf
-    <div class="form-group">
-        <label for="Documento">Documento</label>
-        <input type="text" class="form-control" id="id" name="id" required>
+<div class="container">
+    <h1 class="text-center">Añadir Cliente</h1>
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <form method="POST" action="{{ route('clientes.store') }}">
+                        @csrf
+                        <div class="form-group">
+                            <label>Documento</label>
+                            <input type="text" class="form-control" name="clienteid" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Fecha de nacimiento</label>
+                            <input type="date" class="form-control" name="fechanacimiento" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Teléfono 1</label>
+                            <input type="text" class="form-control" name="teléfono1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Teléfono 2</label>
+                            <input type="text" class="form-control" name="teléfono2">
+                        </div>
+                        <div class="form-group">
+                            <label for="correo">Correo</label>
+                            <input type="email" class="form-control" name="correo" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Documento Vendedor</label>
+                            <select class="form-control" name="vendedorid" required>
+                                <option value="">Selecciona un vendedor</option>
+                                @foreach($vendedores as $vendedor)
+                                    <option value="{{ $vendedor->vendedorid }}">{{ $vendedor->vendedorid }} - {{ $vendedor->nombre }}</option>
+                                @endforeach
+                            </select>                        </div>
+                        <button type="submit" class="btn btn-primary">Crear</button>
+                        <a href="{{ route('clientes.list') }}" class="btn btn-secondary">Volver</a>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input type="text" class="form-control" id="nombre" name="nombre" required>
-    </div>
-    <div class="form-group">
-        <label for="fecha_nacimiento">Fecha de nacimiento</label>
-        <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required>
-    </div>
-    <div class="form-group">
-        <label for="telefono_1">Telefono 1</label>
-        <input type="text" class="form-control" id="telefono_1" name="telefono_1" required>
-    </div>
-    <div class="form-group">
-        <label for="telefono_2">Telefono 2</label>
-        <input type="text" class="form-control" id="telefono_2" name="telefono_2">
-    </div>
-    <div class="form-group">
-        <label for="correo">Correo</label>
-        <input type="text" class="form-control" id="correo" name="correo" required>
-    </div>
-    <div class="form-group">
-        <label for="id_vendedor">Documento vendedor</label>
-        <input type="text" class="form-control" id="id_vendedor" name="id_vendedor" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Crear</button>
-    <a href="{{ route('clientes.list') }}" class="btn btn-secondary">Volver</a>
-</form>
+</div>
 @endsection

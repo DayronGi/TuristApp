@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ciudad;
+use App\Models\Departamento;
 use App\Models\Punto;
-use App\Models\Vendedor;
 use Illuminate\Http\Request;
 
 class PuntoController extends Controller
@@ -19,16 +20,24 @@ class PuntoController extends Controller
     public function add()
     {
         $puntos = Punto::all();
-        return view('puntos.add', compact('puntos'));
+        $departamentos = Departamento::all();
+        $ciudades = Ciudad::all();
+        return view('puntos.add', [
+            'puntos' => $puntos,
+            'departamentos' => $departamentos,
+            'ciudades' => $ciudades
+        ]);
     }
 
     public function store(Request $request)
     {
         $punto = new Punto();
-        $punto->titulo = $request->titulo;
-        $punto->descripcion = $request->descripcion;
-        $punto->fecha_creacion = \Carbon\Carbon::now();
-        $punto->id_estado = 1;
+        $punto->títuloactividad = $request->títuloactividad;
+        $punto->descripciónactividad = $request->descripciónactividad;
+        $punto->estado = 'Activo';
+        $punto->departamentoid = $request->departamentoid;
+        $punto->ciudadid = $request->ciudadid;
+        $punto->fechacreación = \Carbon\Carbon::now();
         $punto->save();
         return redirect()->route('puntos.list');
     }
@@ -44,23 +53,24 @@ class PuntoController extends Controller
 
     public function edit($id)
     {
-        $punto = Punto::findOrFail($id);
+        $punto = Punto::where('puntoid', $id)->first();
         return view('puntos.edit', compact('punto'));
     }
 
     public function update(Request $request, $id) {
-        $punto = Punto::findOrFail($id);
+        $punto = Punto::where('puntoid', $id)->first();
         $punto->update([
-            'titulo' => $request->input('titulo'),
-            'descripcion' => $request->input('descripcion'),
-            'fecha_modificacion' => $request->input('fecha_modificacion'),
+            'títuloactividad' => $request->input('títuloactividad'),
+            'descripciónactividad' => $request->input('descripciónactividad'),
+            'estado' => $request->input('estado'),
+            'fechamodificación' => \Carbon\Carbon::now()
         ]);
         return redirect()->route('puntos.adm');
     }
 
     public function destroy($id)
     {
-        $punto = Punto::findORFail($id);
+        $punto = Punto::where('puntoid', $id)->first();
         $punto->delete();
         return redirect()->route('puntos.adm');
     }

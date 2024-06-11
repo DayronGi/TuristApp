@@ -1,36 +1,48 @@
 @extends('layouts.layout')
 @section('content')
-<form method="POST" action="{{ route('vendedores.store') }}">
-    @csrf
-    <div class="form-group">
-        <label for="Documento">Documento</label>
-        <input type="text" class="form-control" id="id" name="id">
+<div class="container">
+    <h1 class="text-center">Agregar Vendedor</h1>
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <form method="POST" action="{{ route('vendedores.store') }}">
+                        @csrf
+                        <div class="form-group">
+                            <label>Documento</label>
+                            <input type="text" class="form-control" name="vendedorid" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Correo</label>
+                            <input type="text" class="form-control" name="correo" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Fecha de nacimiento</label>
+                            <input type="date" class="form-control" name="fechanacimiento" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Teléfono</label>
+                            <input type="text" class="form-control" name="teléfono" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Usuario</label>
+                            <input type="text" class="form-control" name="usuario" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Contraseña</label>
+                            <input type="text" class="form-control" name="contraseña" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Crear</button>
+                        <a href="{{ route('vendedores.list') }}" class="btn btn-secondary">Volver</a>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input type="text" class="form-control" id="nombre" name="nombre">
-    </div>
-    <div class="form-group">
-        <label for="correo">Correo</label>
-        <input type="text" class="form-control" id="correo" name="correo">
-    </div>
-    <div class="form-group">
-        <label for="fecha_nacimiento">Fecha de nacimiento</label>
-        <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
-    </div>
-    <div class="form-group">
-        <label for="telefono">Telefono</label>
-        <input type="text" class="form-control" id="telefono" name="telefono">
-    </div>
-    <div class="form-group">
-        <label for="username">Usuario</label>
-        <input type="text" class="form-control" id="username" name="username">
-    </div>
-    <div class="form-group">
-        <label for="password">Contraseña</label>
-        <input type="text" class="form-control" id="password" name="password">
-    </div>
-    <button type="submit" class="btn btn-primary">Crear</button>
-    <a href="{{ route('vendedores.list') }}" class="btn btn-secondary">Volver</a>
-</form>
+</div>
 @endsection
