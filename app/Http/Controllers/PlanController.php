@@ -15,6 +15,34 @@ class PlanController extends Controller
         ]);
     }
 
+    public function admin()
+    {
+        return view('planes.admin');
+    }
+
+    public function verify(Request $request)
+    {
+        if ($request->password === 'admin123') {
+            return redirect()->route('planes.adm');
+        } else {
+            return redirect()->back()->with('error', 'Contraseña incorrecta');
+        }
+    }
+
+    public function create()
+    {
+        return view('planes.create');
+    }
+
+    public function verify2(Request $request)
+    {
+        if ($request->password === 'admin123') {
+            return redirect()->route('planes.add');
+        } else {
+            return redirect()->back()->with('error', 'Contraseña incorrecta');
+        }
+    }    
+
     public function adm()
     {
         $planes = Plan::all();
@@ -51,7 +79,8 @@ class PlanController extends Controller
     }
 
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         $plan = Plan::where('planid', $id)->first();
         $plan->update([
             'título' => $request->input('título'),

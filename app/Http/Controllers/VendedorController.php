@@ -16,6 +16,34 @@ class VendedorController extends Controller
         ]);
     }
 
+    public function admin()
+    {
+        return view('vendedores.admin');
+    }
+
+    public function verify(Request $request)
+    {
+        if ($request->password === 'admin123') {
+            return redirect()->route('vendedores.adm');
+        } else {
+            return redirect()->back()->with('error', 'Contraseña incorrecta');
+        }
+    }
+
+    public function create()
+    {
+        return view('vendedores.create');
+    }
+
+    public function verify2(Request $request)
+    {
+        if ($request->password === 'admin123') {
+            return redirect()->route('vendedores.add');
+        } else {
+            return redirect()->back()->with('error', 'Contraseña incorrecta');
+        }
+    }    
+    
     public function adm()
     {
         $vendedores = Vendedor::all();

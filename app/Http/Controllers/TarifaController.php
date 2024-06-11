@@ -16,6 +16,34 @@ class TarifaController extends Controller
         ]);
     }
 
+    public function admin()
+    {
+        return view('tarifas.admin');
+    }
+
+    public function verify(Request $request)
+    {
+        if ($request->password === 'admin123') {
+            return redirect()->route('tarifas.adm');
+        } else {
+            return redirect()->back()->with('error', 'Contraseña incorrecta');
+        }
+
+    }    
+    public function create()
+    {
+        return view('tarifas.create');
+    }
+
+    public function verify2(Request $request)
+    {
+        if ($request->password === 'admin123') {
+            return redirect()->route('tarifas.add');
+        } else {
+            return redirect()->back()->with('error', 'Contraseña incorrecta');
+        }
+    }    
+
     public function adm()
     {
         $tarifas = Tarifa::all();

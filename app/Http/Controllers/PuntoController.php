@@ -17,6 +17,34 @@ class PuntoController extends Controller
         ]);
     }
 
+    public function admin()
+    {
+        return view('puntos.admin');
+    }
+
+    public function verify(Request $request)
+    {
+        if ($request->password === 'admin123') {
+            return redirect()->route('puntos.adm');
+        } else {
+            return redirect()->back()->with('error', 'Contraseña incorrecta');
+        }
+    }
+
+    public function create()
+    {
+        return view('puntos.create');
+    }
+
+    public function verify2(Request $request)
+    {
+        if ($request->password === 'admin123') {
+            return redirect()->route('puntos.add');
+        } else {
+            return redirect()->back()->with('error', 'Contraseña incorrecta');
+        }
+    }    
+
     public function add()
     {
         $puntos = Punto::all();

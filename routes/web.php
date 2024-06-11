@@ -16,9 +16,14 @@ Route::get('/', function() { return Redirect::to('/login'); });
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.form');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
+
 Route::controller(PlanController::class)->group(function() {
     Route::get('/planes', 'list')->name('planes.list');
+    Route::get('planes/admin', 'admin')->name('planes.admin');
     Route::get('planes/adm', 'adm')->name('planes.adm');
+    Route::get('planes/create', 'create')->name('planes.create');
+    Route::get('planes/verify', 'verify')->name('planes.verify');   
+    Route::get('planes/verify2', 'verify2')->name('planes.verify2');   
     Route::get('planes/add', 'add')->name('planes.add');
     Route::post('planes/store', 'store')->name('planes.store');
     Route::get('planes/{id}/edit', 'edit')->name('planes.edit');
@@ -28,7 +33,11 @@ Route::controller(PlanController::class)->group(function() {
 
 Route::controller(PuntoController::class)->group(function() {
     Route::get('/puntos', 'list')->name('puntos.list');
+    Route::get('puntos/admin', 'admin')->name('puntos.admin');
+    Route::get('puntos/create', 'create')->name('puntos.create');
     Route::get('puntos/adm', 'adm')->name('puntos.adm');
+    Route::get('puntos/verify', 'verify')->name('puntos.verify'); 
+    Route::get('puntos/verify2', 'verify2')->name('puntos.verify2'); 
     Route::get('puntos/add', 'add')->name('puntos.add');
     Route::post('puntos/store', 'store')->name('puntos.store');
     Route::get('puntos/{id}/edit', 'edit')->name('puntos.edit');
@@ -38,7 +47,11 @@ Route::controller(PuntoController::class)->group(function() {
 
 Route::controller(TarifaController::class)->group(function() {
     Route::get('/tarifas', 'list')->name('tarifas.list');
+    Route::get('tarifas/admin', 'admin')->name('tarifas.admin');
+    Route::get('tarifas/create', 'create')->name('tarifas.create');
     Route::get('tarifas/adm', 'adm')->name('tarifas.adm');
+    Route::get('tarifas/verify', 'verify')->name('tarifas.verify');  
+    Route::get('tarifas/verify2', 'verify2')->name('tarifas.verify2');  
     Route::get('tarifas/add', 'add')->name('tarifas.add');
     Route::post('tarifas/store', 'store')->name('tarifas.store');
     Route::get('tarifas/{id}/edit', 'edit')->name('tarifas.edit');
@@ -48,7 +61,11 @@ Route::controller(TarifaController::class)->group(function() {
 
 Route::controller(VendedorController::class)->group(function() {
     Route::get('/vendedores', 'list')->name('vendedores.list');
+    Route::get('vendedores/admin', 'admin')->name('vendedores.admin');
+    Route::get('vendedores/create', 'create')->name('vendedores.create');
     Route::get('vendedores/adm', 'adm')->name('vendedores.adm');
+    Route::get('vendedores/verify', 'verify')->name('vendedores.verify');   
+    Route::get('vendedores/verify2', 'verify2')->name('vendedores.verify2');   
     Route::get('vendedores/add', 'add')->name('vendedores.add');
     Route::post('vendedores/store', 'store')->name('vendedores.store');
     Route::get('vendedores/{id}/edit', 'edit')->name('vendedores.edit');

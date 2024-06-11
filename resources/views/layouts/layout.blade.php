@@ -59,16 +59,16 @@
         </div>
         <ul class="list-unstyled components">
             <li>
-                <a href="#planesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Planes turisticos</a>
+                <a href="#planesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Planes turísticos</a>
                 <ul class="collapse list-unstyled" id="planesSubmenu">
                     <li>
                         <a href="{{ route('planes.list') }}">Ver planes</a>
                     </li>
                     <li>
-                        <a href="{{ route('planes.add') }}">Crear plan</a>
+                        <a href="{{ route('planes.create') }}">Crear plan</a>
                     </li>
                     <li>
-                        <a href="{{ route('planes.adm') }}">Administrar</a>
+                        <a href="{{ route('planes.admin') }}">Administrar</a>
                     </li>
                 </ul>
             </li>
@@ -79,10 +79,10 @@
                         <a href="{{ route('puntos.list') }}">Ver puntos</a>
                     </li>
                     <li>
-                        <a href="{{ route('puntos.add') }}">Crear punto</a>
+                        <a href="{{ route('puntos.create') }}">Crear punto</a>
                     </li>
                     <li>
-                        <a href="{{ route('puntos.adm') }}">Administrar</a>
+                        <a href="{{ route('puntos.admin') }}">Administrar</a>
                     </li>
                 </ul>
             </li>
@@ -93,10 +93,10 @@
                         <a href="{{ route('tarifas.list') }}">Ver tarifas</a>
                     </li>
                     <li>
-                        <a href="{{ route('tarifas.add') }}">Crear tarifa</a>
+                        <a href="{{ route('tarifas.create') }}">Crear tarifa</a>
                     </li>
                     <li>
-                        <a href="{{ route('tarifas.adm') }}">Administrar</a>
+                        <a href="{{ route('tarifas.admin') }}">Administrar</a>
                     </li>
                 </ul>
             </li>
@@ -107,10 +107,10 @@
                         <a href="{{ route('vendedores.list') }}">Ver vendedores</a>
                     </li>
                     <li>
-                        <a href="{{ route('vendedores.add') }}">Crear vendedor</a>
+                        <a href="{{ route('vendedores.create') }}">Crear vendedor</a>
                     </li>
                     <li>
-                        <a href="{{ route('vendedores.adm') }}">Administrar</a>
+                        <a href="{{ route('vendedores.admin') }}">Administrar</a>
                     </li>
                 </ul>
             </li>
