@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'TuristApp')</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <style>
         body {
             display: flex;
             min-height: 100vh;
@@ -69,7 +68,7 @@
                         <a href="{{ route('planes.add') }}">Crear plan</a>
                     </li>
                     <li>
-                        <a href="{{ route('section.password', ['section' => 'planes']) }}">Administrar</a>   
+                        <a href="{{ route('planes.adm') }}">Administrar</a>
                     </li>
                 </ul>
             </li>
@@ -83,7 +82,7 @@
                         <a href="{{ route('puntos.add') }}">Crear punto</a>
                     </li>
                     <li>
-                        <a href="{{ route('section.password', ['section' => 'puntos']) }}">Administrar</a>
+                        <a href="{{ route('puntos.adm') }}">Administrar</a>
                     </li>
                 </ul>
             </li>
@@ -97,7 +96,7 @@
                         <a href="{{ route('tarifas.add') }}">Crear tarifa</a>
                     </li>
                     <li>
-                        <a href="{{ route('section.password', ['section' => 'tarifas']) }}">Administrar</a>
+                        <a href="{{ route('tarifas.adm') }}">Administrar</a>
                     </li>
                 </ul>
             </li>
@@ -111,7 +110,7 @@
                         <a href="{{ route('vendedores.add') }}">Crear vendedor</a>
                     </li>
                     <li>
-                        <a href="{{ route('section.password', ['section' => 'vendedores']) }}">Administrar</a>
+                        <a href="{{ route('vendedores.adm') }}">Administrar</a>
                     </li>
                 </ul>
             </li>
