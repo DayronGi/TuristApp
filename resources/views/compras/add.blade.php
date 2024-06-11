@@ -5,7 +5,7 @@
     <br>
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
                 <div class="card-body">
                     <form method="POST" action="{{ route('compras.store') }}">
                         @csrf
@@ -53,8 +53,10 @@
                             <label>Cantidad de Personas</label>
                             <input type="number" class="form-control" name="cantidadpersonas" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Crear</button>
-                        <a href="{{ route('compras.list') }}" class="btn btn-secondary">Volver</a>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary">Crear</button>
+                            <a href="{{ route('compras.list') }}" class="btn btn-secondary">Volver</a>
+                        </div>
                     </form>
                 </div>
             </div>

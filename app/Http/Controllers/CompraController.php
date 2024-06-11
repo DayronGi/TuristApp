@@ -35,15 +35,12 @@ class CompraController extends Controller
     
     public function store(Request $request)
     {
-        // Obtener el plan turístico
         $plan = Plan::findOrFail($request->planid);
     
-        // Inicializar los costos adicionales de alimentos
         $costoDesayuno = 0;
         $costoAlmuerzo = 0;
         $costoCena = 0;
     
-        // Obtener los costos adicionales de alimentos si el plan no los incluye
         if (!$plan->incluyedesayuno) {
             $costoDesayuno = CostoAdicionalAlimento::where('planid', $request->planid)->value('costodesayunoadicional');
         }
@@ -54,17 +51,13 @@ class CompraController extends Controller
             $costoCena = CostoAdicionalAlimento::where('planid', $request->planid)->value('costocenaadicional');
         }
     
-        // Calcular el costo total de los alimentos adicionales
         $costoAlimentos = $costoDesayuno + $costoAlmuerzo + $costoCena;
     
-        // Calcular el costo total del plan
         $costoTotalPlan = $plan->tarifas()->where('temporada', $request->temporada)->first()->costo;
     
-        // Calcular el costo total de la compra
         $costoOtrosConceptos = $costoAlimentos;
         $totalCompra = ($costoTotalPlan + $costoOtrosConceptos) * $request->cantidadpersonas;
     
-        // Crear y guardar la compra
         $compra = new Compra();
         $compra->clienteid = $request->clienteid;
         $compra->vendedorid = $request->vendedorid;
@@ -74,7 +67,6 @@ class CompraController extends Controller
         $compra->totalcompra = $totalCompra;
         $compra->save();
     
-        // Crear y guardar el detalle de la compra
         $detalle = new DetalleCompra();
         $detalle->compraid = $compra->compraid;
         $detalle->planid = $request->planid;

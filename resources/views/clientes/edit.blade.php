@@ -5,7 +5,7 @@
     <br>
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card">
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
                 <div class="card-body">
                     <form method="POST" action="{{ route('clientes.update', $cliente->clienteid) }}">
                         @csrf
@@ -38,8 +38,10 @@
                             <label for="id_vendedor">Documento Vendedor</label>
                             <input type="text" class="form-control" name="vendedorid" value="{{ $cliente->vendedorid }}" readonly>
                         </div>
-                        <button type="submit" class="btn btn-primary">Actualizar</button>
-                        <a href="{{ route('clientes.list') }}" class="btn btn-secondary">Volver</a>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary mr-2">Actualizar</button>
+                            <a href="{{ route('clientes.list') }}" class="btn btn-secondary">Volver</a>
+                        </div>
                     </form>
                 </div>
             </div>

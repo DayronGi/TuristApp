@@ -1,25 +1,32 @@
 @extends('layouts.layout')
 @section('content')
-<h1 class="text-center">Planes turísticos</h1>
-<br>
 <div class="container">
+    <h1 class="text-center">Planes Turísticos</h1>
+    <br>
     <div class="row">
         @foreach ($planes as $plan)
             <div class="col-md-4">
-                <div class="card mb-4">
-                    <div class="card-header">
-                        Plan Nro.{{ $plan->planid }}
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header bg-dark text-white">
+                        <h5 class="my-0">Plan Nro.{{ $plan->planid }}</h5>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Título: {{ $plan->título }}</h5>
-                        <p class="card-text">Descripción: {{ $plan->descripción }}</p>
-                        <p class="card-text"><small class="text-body-secondary">Duración: {{ $plan->duración }} días</small></p>
-                        <a href="{{ route('planes.edit', $plan->planid) }}" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
-                        <form action="{{ route('planes.delete', $plan->planid) }}" method="POST" style="display:inline;" onsubmit="return confirmDelete()">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-                        </form>
+                        <h5 class="card-title">{{ $plan->título }}</h5>
+                        <p class="card-text">{{ $plan->descripción }}</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Duración: {{ $plan->duración }} días</li>
+                            <li class="list-group-item">Incluye Desayuno: {{ $plan->incluyedesayuno == 'true' ? 'Sí' : 'No' }}</li>
+                            <li class="list-group-item">Incluye Almuerzo: {{ $plan->incluyealmuerzo == 'true' ? 'Sí' : 'No' }}</li>
+                            <li class="list-group-item">Incluye Cena: {{ $plan->incluyecena == 'true' ? 'Sí' : 'No' }}</li>
+                        </ul>
+                        <div class="mt-3 d-flex justify-content-end">
+                            <a href="{{ route('planes.edit', $plan->planid) }}" class="text-secondary mr-3"><i class="fas fa-edit"></i></a>
+                            <form action="{{ route('planes.delete', $plan->planid) }}" method="POST" onsubmit="return confirmDelete()">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-link text-danger p-0"><i class="fas fa-trash-alt"></i></button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

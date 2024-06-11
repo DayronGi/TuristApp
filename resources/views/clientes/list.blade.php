@@ -26,15 +26,11 @@
                             <td class="text-center align-middle">{{ $cliente->teléfono1 }}</td>
                             <td class="text-center align-middle">{{ $cliente->teléfono2 }}</td>
                             <td class="text-center align-middle">
-                                <a href="{{ route('clientes.edit', $cliente->clienteid) }}" class="btn btn-primary btn-sm">
-                                    <i class="fa-solid fa-pen-to-square"></i>
-                                </a>
+                                <a href="{{ route('clientes.edit', $cliente->clienteid) }}" class="text-secondary mr-3"><i class="fas fa-edit"></i></a>
                                 <form action="{{ route('clientes.delete', $cliente->clienteid) }}" method="POST" style="display:inline;" onsubmit="return confirmDelete()">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </button>
+                                    <button type="submit" class="btn btn-link text-danger p-0"><i class="fas fa-trash-alt"></i></button>
                                 </form>
                             </td>
                         </tr>

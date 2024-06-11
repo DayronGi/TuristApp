@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'TuristApp')</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    <style>
         body {
+            font-family: Arial, sans-serif;
             display: flex;
             min-height: 100vh;
             margin: 0;
         }
+
         #sidebar {
             min-width: 250px;
             max-width: 250px;
@@ -19,16 +22,20 @@
             height: 100vh;
             position: fixed;
             padding-top: 20px;
+            z-index: 1;
         }
+
         #content {
             margin-left: 250px;
             width: calc(100% - 250px);
             padding: 20px;
         }
+
         .sidebar-header {
             text-align: center;
             padding: 10px;
         }
+
         .components a {
             color: #ffffff;
             padding: 10px;
@@ -36,18 +43,59 @@
             display: block;
             transition: all 0.3s;
         }
+
         .components a:hover {
             background-color: #1d2124;
             color: #078fff;
         }
+
         .components a.dropdown-toggle::after {
             display: none;
         }
+
         .components .collapse.show a {
             background-color: #1d2124;
             color: #fff;
         }
+
         .components .collapse.show a:hover {
+            color: #078fff;
+        }
+
+        /* Nuevo estilo para el nav */
+        #sidebar {
+            background-color: #343a40;
+            color: #fff;
+            transition: all 0.3s;
+        }
+
+        #sidebar:hover {
+            background-color: #1d2124;
+        }
+
+        .components a {
+            padding: 10px 20px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .components a:hover {
+            background-color: #1d2124;
+            color: #078fff;
+        }
+
+        .components ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 10px;
+        }
+
+        .components ul li a {
+            padding-left: 40px;
+            transition: all 0.3s;
+        }
+
+        .components ul li a:hover {
             color: #078fff;
         }
     </style>

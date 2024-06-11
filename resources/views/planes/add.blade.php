@@ -5,7 +5,7 @@
     <br>
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
                 <div class="card-body">
                     <form method="POST" action="{{ route('planes.store') }}">
                         @csrf
@@ -42,8 +42,10 @@
                                 <option value="FALSE">No</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary">Crear</button>
-                        <a href="{{ route('planes.list') }}" class="btn btn-secondary">Volver</a>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary mr-2">Crear</button>
+                            <a href="{{ route('planes.list') }}" class="btn btn-secondary">Volver</a>
+                        </div>
                     </form>
                 </div>
             </div>

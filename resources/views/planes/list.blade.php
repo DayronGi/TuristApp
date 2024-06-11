@@ -1,22 +1,24 @@
 @extends('layouts.layout')
 @section('content')
-<h1 class="text-center">Planes turísticos</h1>
-<br>
 <div class="container">
+    <h1 class="text-center">Planes Turísticos</h1>
+    <br>
     <div class="row">
         @foreach ($planes as $plan)
             <div class="col-md-4">
-                <div class="card mb-4">
-                    <div class="card-header">
-                        Plan Nro.{{ $plan->planid }}
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header bg-dark text-white">
+                        <h5 class="my-0">Plan Nro.{{ $plan->planid }}</h5>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Título: {{ $plan->título }}</h5>
-                        <p class="card-text">Descripción: {{ $plan->descripción }}</p>
-                        <p class="card-text">Duración: {{ $plan->duración }} días</p>
-                        <p class="card-text">Incluye Desayuno: {{ $plan->incluyedesayuno == 'true' ? 'Sí' : 'No' }}</p>
-                        <p class="card-text">Incluye Almuerzo: {{ $plan->incluyealmuerzo == 'true' ? 'Sí' : 'No' }}</p>
-                        <p class="card-text">Incluye Cena: {{ $plan->incluyecena == 'true' ? 'Sí' : 'No' }}</p>
+                        <h5 class="card-title">{{ $plan->título }}</h5>
+                        <p class="card-text">{{ $plan->descripción }}</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Duración: {{ $plan->duración }} días</li>
+                            <li class="list-group-item">Incluye Desayuno: {{ $plan->incluyedesayuno == 'true' ? 'Sí' : 'No' }}</li>
+                            <li class="list-group-item">Incluye Almuerzo: {{ $plan->incluyealmuerzo == 'true' ? 'Sí' : 'No' }}</li>
+                            <li class="list-group-item">Incluye Cena: {{ $plan->incluyecena == 'true' ? 'Sí' : 'No' }}</li>
+                        </ul>
                     </div>
                 </div>
             </div>

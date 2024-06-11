@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Ciudad;
 use App\Models\Departamento;
+use App\Models\Plan;
+use App\Models\PlanPunto;
 use App\Models\Punto;
 use Illuminate\Http\Request;
 
@@ -47,13 +49,15 @@ class PuntoController extends Controller
 
     public function add()
     {
+        $planes = Plan::all();
         $puntos = Punto::all();
         $departamentos = Departamento::all();
         $ciudades = Ciudad::all();
         return view('puntos.add', [
             'puntos' => $puntos,
             'departamentos' => $departamentos,
-            'ciudades' => $ciudades
+            'ciudades' => $ciudades,
+            'planes' => $planes,
         ]);
     }
 
@@ -67,6 +71,11 @@ class PuntoController extends Controller
         $punto->ciudadid = $request->ciudadid;
         $punto->fechacreación = \Carbon\Carbon::now();
         $punto->save();
+
+        $plan = new PlanPunto();
+        $plan->planid = $request->planid;
+        $plan->puntoid = $punto->puntoid;
+        $plan->save();
         return redirect()->route('puntos.list');
     }
 

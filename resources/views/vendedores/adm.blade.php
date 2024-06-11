@@ -24,11 +24,11 @@
                         <td class="text-center">{{ $vendedor->teléfono }}</td>
                         <td class="text-center">{{ $vendedor->correo }}</td>
                         <td class="text-center">
-                            <a href="{{ route('vendedores.edit', $vendedor->vendedorid) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                            <a href="{{ route('vendedores.edit', $vendedor->vendedorid) }}" class="text-secondary mr-3"><i class="fas fa-edit"></i></a>
                             <form action="{{ route('vendedores.delete', $vendedor->vendedorid) }}" method="POST" style="display:inline;" onsubmit="return confirmDelete()">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                <button type="submit" class="btn btn-link text-danger p-0"><i class="fas fa-trash-alt"></i></button>
                             </form>
                         </td>
                     </tr>

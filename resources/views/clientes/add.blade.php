@@ -5,7 +5,7 @@
     <br>
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card">
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
                 <div class="card-body">
                     <form method="POST" action="{{ route('clientes.store') }}">
                         @csrf
@@ -40,9 +40,12 @@
                                 @foreach($vendedores as $vendedor)
                                     <option value="{{ $vendedor->vendedorid }}">{{ $vendedor->vendedorid }} - {{ $vendedor->nombre }}</option>
                                 @endforeach
-                            </select>                        </div>
-                        <button type="submit" class="btn btn-primary">Crear</button>
-                        <a href="{{ route('clientes.list') }}" class="btn btn-secondary">Volver</a>
+                            </select>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary">Crear</button>
+                            <a href="{{ route('clientes.list') }}" class="btn btn-secondary">Volver</a>
+                        </div>
                     </form>
                 </div>
             </div>

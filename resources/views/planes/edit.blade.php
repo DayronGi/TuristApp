@@ -5,7 +5,7 @@
     <br>
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card">
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
                 <div class="card-body">
                     <form method="POST" action="{{ route('planes.update', $plan->planid) }}">
                         @csrf
@@ -50,8 +50,10 @@
                                 <option value="Inactivo" {{ $plan->estado == 'Inactivo' ? 'selected' : '' }}>Inactivo</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
-                        <a href="{{ route('planes.adm') }}" class="btn btn-secondary">Volver</a>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary mr-2">Guardar cambios</button>
+                            <a href="{{ route('planes.adm') }}" class="btn btn-secondary">Volver</a>
+                        </div>
                     </form>
                 </div>
             </div>

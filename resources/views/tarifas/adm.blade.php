@@ -26,11 +26,11 @@
                         <td class="text-center">{{ $tarifa->fechainicio }}</td>
                         <td class="text-center">{{ $tarifa->fechafin }}</td>
                         <td class="text-center">
-                            <a href="{{ route('tarifas.edit', $tarifa->tarifaid) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                            <a href="{{ route('tarifas.edit', $tarifa->tarifaid) }}" class="text-secondary mr-3"><i class="fas fa-edit"></i></a>
                             <form action="{{ route('tarifas.delete', $tarifa->tarifaid) }}" method="POST" style="display:inline;" onsubmit="return confirmDelete()">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                <button type="submit" class="btn btn-link text-danger p-0"><i class="fas fa-trash-alt"></i></button>
                             </form>
                         </td>
                     </tr>
