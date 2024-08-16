@@ -18,12 +18,12 @@
             <tbody>
                 @foreach ($tarifas as $tarifa)
                     <tr>
-                        <td class="text-center">{{ $tarifa->tarifaid }}</td>
-                        <td class="text-center">{{ $tarifa->plan->título }}</td>
+                        <td class="text-center">{{ $tarifa->tarifa_id }}</td>
+                        <td class="text-center">{{ $tarifa->plan->titulo }}</td>
                         <td class="text-center">{{ $tarifa->temporada }}</td>
                         <td class="text-center">{{ $tarifa->costo }}</td>
-                        <td class="text-center">{{ $tarifa->fechainicio }}</td>
-                        <td class="text-center">{{ $tarifa->fechafin }}</td>
+                        <td class="text-center">{{ $tarifa->fecha_inicio }}</td>
+                        <td class="text-center">{{ $tarifa->fecha_fin }}</td>
                     </tr>
                 @endforeach
             </tbody>

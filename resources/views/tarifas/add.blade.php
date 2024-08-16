@@ -11,10 +11,10 @@
                         @csrf
                         <div class="form-group">
                             <label>Plan turístico</label>
-                            <select class="form-control" name="planid" required>
+                            <select class="form-control" name="plan_id" required>
                                 @foreach($planes as $plan)
-                                    <option value="{{ $plan->planid }}">
-                                        {{ $plan->título }}
+                                    <option value="{{ $plan->plan_id }}">
+                                        {{ $plan->titulo }}
                                     </option>
                                 @endforeach
                             </select>
@@ -33,11 +33,11 @@
                         </div>
                         <div class="form-group">
                             <label>Fecha inicio</label>
-                            <input type="date" class="form-control" name="fechainicio" required>
+                            <input type="date" class="form-control" name="fecha_inicio" required>
                         </div>
                         <div class="form-group">
                             <label>Fecha fin</label>
-                            <input type="date" class="form-control" name="fechafin" required>
+                            <input type="date" class="form-control" name="fecha_fin" required>
                         </div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-primary mr-2">Agregar</button>

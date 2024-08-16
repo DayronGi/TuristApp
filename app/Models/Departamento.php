@@ -12,5 +12,5 @@ class Departamento extends Model
 
     protected $table = 'departamentos';
 
-    protected $primaryKey = 'departamentoid';
+    protected $primaryKey = 'departamento_id';
 }

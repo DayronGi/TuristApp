@@ -11,7 +11,7 @@
                         @csrf
                         <div class="form-group">
                             <label>Documento</label>
-                            <input type="text" class="form-control" name="clienteid" required>
+                            <input type="text" class="form-control" name="cliente_id" required>
                         </div>
                         <div class="form-group">
                             <label>Nombre</label>
@@ -19,15 +19,15 @@
                         </div>
                         <div class="form-group">
                             <label>Fecha de nacimiento</label>
-                            <input type="date" class="form-control" name="fechanacimiento" required>
+                            <input type="date" class="form-control" name="fecha_nacimiento" required>
                         </div>
                         <div class="form-group">
                             <label>Teléfono 1</label>
-                            <input type="text" class="form-control" name="teléfono1" required>
+                            <input type="text" class="form-control" name="telefono_1" required>
                         </div>
                         <div class="form-group">
                             <label>Teléfono 2</label>
-                            <input type="text" class="form-control" name="teléfono2">
+                            <input type="text" class="form-control" name="telefono_2">
                         </div>
                         <div class="form-group">
                             <label for="correo">Correo</label>
@@ -35,10 +35,10 @@
                         </div>
                         <div class="form-group">
                             <label>Documento Vendedor</label>
-                            <select class="form-control" name="vendedorid" required>
+                            <select class="form-control" name="vendedor_id" required>
                                 <option value="">Selecciona un vendedor</option>
                                 @foreach($vendedores as $vendedor)
-                                    <option value="{{ $vendedor->vendedorid }}">{{ $vendedor->vendedorid }} - {{ $vendedor->nombre }}</option>
+                                    <option value="{{ $vendedor->vendedor_id }}">{{ $vendedor->vendedor_id }} - {{ $vendedor->nombre }}</option>
                                 @endforeach
                             </select>
                         </div>

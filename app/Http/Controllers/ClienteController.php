@@ -29,35 +29,35 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         $cliente = new Cliente();
-        $cliente->clienteid = $request->clienteid;
+        $cliente->cliente_id = $request->cliente_id;
         $cliente->nombre = $request->nombre;
-        $cliente->fechanacimiento = $request->fechanacimiento;
+        $cliente->fecha_nacimiento = $request->fecha_nacimiento;
         $cliente->correo = $request->correo;
-        $cliente->teléfono1 = $request->teléfono1;
-        $cliente->teléfono2 = $request->teléfono2;
-        $cliente->vendedorid = $request->vendedorid;
+        $cliente->telefono_1 = $request->telefono_1;
+        $cliente->telefono_2 = $request->telefono_2;
+        $cliente->vendedor_id = $request->vendedor_id;
         $cliente->save();
         return redirect()->route('clientes.list');
     }
 
     public function edit($id) {
-        $cliente = Cliente::where('clienteid', $id)->first();
+        $cliente = Cliente::where('cliente_id', $id)->first();
         return view('clientes.edit', compact('cliente'));
     }
 
     public function update(Request $request, $id) {
-        $cliente = Cliente::where('clienteid', $id)->first();
+        $cliente = Cliente::where('cliente_id', $id)->first();
         $cliente->update([
             'correo' => $request->input('correo'),
-            'teléfono1' => $request->input('teléfono1'),
-            'teléfono2' => $request->input('teléfono2'),
+            'telefono_1' => $request->input('telefono_1'),
+            'telefono_2' => $request->input('telefono_2'),
         ]);
         return redirect()->route('clientes.list');
     }
 
     public function destroy($id)
     {
-        $cliente = Cliente::where('clienteid', $id)->first();
+        $cliente = Cliente::where('cliente_id', $id)->first();
         $cliente->delete();
         return redirect()->route('clientes.list');
     }

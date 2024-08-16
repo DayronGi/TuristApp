@@ -29,7 +29,7 @@ class TarifaController extends Controller
             return redirect()->back()->with('error', 'Contraseña incorrecta');
         }
 
-    }    
+    }
     public function create()
     {
         return view('tarifas.create');
@@ -42,7 +42,7 @@ class TarifaController extends Controller
         } else {
             return redirect()->back()->with('error', 'Contraseña incorrecta');
         }
-    }    
+    }
 
     public function adm()
     {
@@ -65,18 +65,18 @@ class TarifaController extends Controller
     public function store(Request $request)
     {
         $tarifa = new Tarifa();
-        $tarifa->planid = $request->planid;
+        $tarifa->plan_id = $request->plan_id;
         $tarifa->temporada = $request->temporada;
         $tarifa->costo = $request->costo;
-        $tarifa->fechainicio = $request->fechainicio;
-        $tarifa->fechafin = $request->fechafin;
+        $tarifa->fecha_inicio = $request->fecha_inicio;
+        $tarifa->fecha_fin = $request->fecha_fin;
         $tarifa->save();
         return redirect()->route('tarifas.list');
     }
 
     public function edit($id)
     {
-        $tarifa = Tarifa::where('tarifaid', $id)->first();
+        $tarifa = Tarifa::where('tarifa_id', $id)->first();
         return view('tarifas.edit', [
             'tarifa' => $tarifa,
         ]);
@@ -84,19 +84,19 @@ class TarifaController extends Controller
 
 
     public function update(Request $request, $id) {
-        $tarifa = tarifa::where('tarifaid', $id)->first();
+        $tarifa = tarifa::where('tarifa_id', $id)->first();
         $tarifa->update([
             'temporada' => $request->input('temporada'),
             'costo' => $request->input('costo'),
-            'fechainicio' => $request->input('fechainicio'),
-            'fechafin' => $request->input('fechafin'),
+            'fecha_inicio' => $request->input('fecha_inicio'),
+            'fecha_fin' => $request->input('fecha_fin'),
         ]);
         return redirect()->route('tarifas.adm');
     }
 
     public function destroy($id)
     {
-        $tarifa = tarifa::where('tarifaid', $id)->first();
+        $tarifa = tarifa::where('tarifa_id', $id)->first();
         $tarifa->delete();
         return redirect()->route('tarifas.adm');
     }

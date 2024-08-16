@@ -42,8 +42,8 @@ class VendedorController extends Controller
         } else {
             return redirect()->back()->with('error', 'Contraseña incorrecta');
         }
-    }    
-    
+    }
+
     public function adm()
     {
         $vendedores = Vendedor::all();
@@ -61,11 +61,11 @@ class VendedorController extends Controller
     public function store(Request $request)
     {
         $vendedor = new Vendedor();
-        $vendedor->vendedorid = $request->vendedorid;
+        $vendedor->vendedor_id = $request->vendedor_id;
         $vendedor->nombre = $request->nombre;
         $vendedor->correo = $request->correo;
-        $vendedor->fechanacimiento = $request->fechanacimiento;
-        $vendedor->teléfono = $request->teléfono;
+        $vendedor->fecha_nacimiento = $request->fecha_nacimiento;
+        $vendedor->telefono = $request->telefono;
         $vendedor->usuario = $request->usuario;
         $vendedor->contraseña = $request->contraseña;
         $vendedor->save();
@@ -74,16 +74,16 @@ class VendedorController extends Controller
 
     public function edit($id)
     {
-        $vendedor = Vendedor::where('vendedorid', $id)->first();
+        $vendedor = Vendedor::where('vendedor_id', $id)->first();
         return view('vendedores.edit', compact('vendedor'));
     }
 
     public function update(Request $request, $id)
     {
-        $vendedor = Vendedor::where('vendedorid', $id)->first();
+        $vendedor = Vendedor::where('vendedor_id', $id)->first();
         $vendedor->update([
             'correo' => $request->input('correo'),
-            'teléfono' => $request->input('telefono'),
+            'telefono' => $request->input('telefono'),
             'contraseña' => $request->input('contraseña'),
         ]);
         return redirect()->route('vendedores.adm');
@@ -91,7 +91,7 @@ class VendedorController extends Controller
 
     public function destroy($id)
     {
-        $vendedor = Vendedor::where('vendedorid', $id)->first();
+        $vendedor = Vendedor::where('vendedor_id', $id)->first();
         $vendedor->delete();
         return redirect()->route('vendedores.adm');
     }

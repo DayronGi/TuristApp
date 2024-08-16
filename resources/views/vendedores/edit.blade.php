@@ -7,12 +7,12 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
-                    <form method="POST" action="{{ route('vendedores.update', $vendedor->vendedorid) }}">
+                    <form method="POST" action="{{ route('vendedores.update', $vendedor->vendedor_id) }}">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
                             <label for="Documento">Documento</label>
-                            <input type="text" class="form-control" name="vendedorid" value="{{ $vendedor->vendedorid }}" readonly>
+                            <input type="text" class="form-control" name="vendedor_id" value="{{ $vendedor->vendedor_id }}" readonly>
                         </div>
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
@@ -24,11 +24,11 @@
                         </div>
                         <div class="form-group">
                             <label for="fecha_nacimiento">Fecha de nacimiento</label>
-                            <input type="date" class="form-control" name="fechanacimiento" value="{{ $vendedor->fechanacimiento }}" readonly>
+                            <input type="date" class="form-control" name="fecha_nacimiento" value="{{ $vendedor->fecha_nacimiento }}" readonly>
                         </div>
                         <div class="form-group">
                             <label for="telefono">Teléfono</label>
-                            <input type="text" class="form-control" name="teléfono" value="{{ $vendedor->teléfono }}" required>
+                            <input type="text" class="form-control" name="telefono" value="{{ $vendedor->telefono }}" required>
                         </div>
                         <div class="form-group">
                             <label for="username">Usuario</label>

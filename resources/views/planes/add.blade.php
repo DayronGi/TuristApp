@@ -11,33 +11,33 @@
                         @csrf
                         <div class="form-group">
                             <label for="titulo">Título</label>
-                            <input type="text" class="form-control" id="titulo" name="título" required>
+                            <input type="text" class="form-control" id="titulo" name="titulo" required>
                         </div>
                         <div class="form-group">
                             <label for="descripcion">Descripción</label>
-                            <textarea class="form-control" id="descripcion" name="descripción" rows="3" required></textarea>
+                            <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required></textarea>
                         </div>
                         <div class="form-group">
                             <label for="duracion">Días de duración</label>
-                            <input type="number" class="form-control" id="duracion" name="duración" required>
+                            <input type="number" class="form-control" id="duracion" name="duracion" required>
                         </div>
                         <div class="form-group">
                             <label for="incluyedesayuno">Incluye desayuno</label>
-                            <select class="form-control" id="incluyedesayuno" name="incluyedesayuno" required>
+                            <select class="form-control" id="incluye_desayuno" name="incluye_desayuno" required>
                                 <option value="TRUE">Si</option>
                                 <option value="FALSE">No</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="incluyealmuerzo">Incluye almuerzo</label>
-                            <select class="form-control" id="incluyealmuerzo" name="incluyealmuerzo" required>
+                            <select class="form-control" id="incluye_almuerzo" name="incluye_almuerzo" required>
                                 <option value="TRUE">Si</option>
                                 <option value="FALSE">No</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="incluyecena">Incluye cena</label>
-                            <select class="form-control" id="incluyecena" name="incluyecena" required>
+                            <select class="form-control" id="incluye_cena" name="incluye_cena" required>
                                 <option value="TRUE">Si</option>
                                 <option value="FALSE">No</option>
                             </select>

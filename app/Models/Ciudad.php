@@ -11,5 +11,5 @@ class Ciudad extends Model
 
     protected $table = 'ciudades';
 
-    protected $primaryKey = 'ciudadid';
+    protected $primaryKey = 'ciudad_id';
 }

@@ -11,7 +11,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="documento">Documento</label>
-                            <input type="text" class="form-control" id="documento" name="vendedorid" required>
+                            <input type="text" class="form-control" id="documento" name="vendedor_id" required>
                         </div>
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
@@ -23,11 +23,11 @@
                         </div>
                         <div class="form-group">
                             <label for="fechanacimiento">Fecha de nacimiento</label>
-                            <input type="date" class="form-control" id="fechanacimiento" name="fechanacimiento" required>
+                            <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required>
                         </div>
                         <div class="form-group">
                             <label for="teléfono">Teléfono</label>
-                            <input type="text" class="form-control" id="teléfono" name="teléfono" required>
+                            <input type="text" class="form-control" id="telefono" name="telefono" required>
                         </div>
                         <div class="form-group">
                             <label for="usuario">Usuario</label>

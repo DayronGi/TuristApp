@@ -8,7 +8,7 @@
                 <label for="vendedor">Seleccione Vendedor:</label>
                 <select class="form-control" id="vendedor" name="vendedor">
                     @foreach($vendedores as $vendedor)
-                        <option value="{{ $vendedor->vendedorid }}">{{ $vendedor->nombre }}</option>
+                        <option value="{{ $vendedor->vendedor_id }}">{{ $vendedor->nombre }}</option>
                     @endforeach
                 </select>
             </div>
@@ -38,13 +38,13 @@
                     <tbody>
                         @foreach($compras as $compra)
                             <tr>
-                                <td class="text-center">{{ $compra->detalle->plan->título }}</td>
+                                <td class="text-center">{{ $compra->detalle->plan->titulo }}</td>
                                 <td class="text-center">{{ $compra->cliente->nombre }}</td>
-                                <td class="text-center">{{ $compra->cliente->teléfono1 }}</td>
-                                <td class="text-center">{{ $compra->cliente->teléfono2 }}</td>
+                                <td class="text-center">{{ $compra->cliente->telefono_1 }}</td>
+                                <td class="text-center">{{ $compra->cliente->telefono_2 }}</td>
                                 <td class="text-center">{{ $compra->cliente->correo }}</td>
-                                <td class="text-center">{{ $compra->fechacompra }}</td>
-                                <td class="text-center">{{ $compra->totalcompra }}</td>
+                                <td class="text-center">{{ $compra->fecha_compra }}</td>
+                                <td class="text-center">{{ $compra->total_compra }}</td>
                             </tr>
                         @endforeach
                     </tbody>

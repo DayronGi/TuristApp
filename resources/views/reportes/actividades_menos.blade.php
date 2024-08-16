@@ -6,9 +6,9 @@
     <form action="{{ route('reportes.actividades_menos') }}" method="GET">
         <div class="form-group">
             <label for="vendedorid">Vendedor:</label>
-            <select id="vendedorid" name="vendedorid" class="form-control" required>
+            <select id="vendedorid" name="vendedor_id" class="form-control" required>
                 @foreach($vendedores as $vendedor)
-                    <option value="{{ $vendedor->vendedorid }}">{{ $vendedor->nombre }}</option>
+                    <option value="{{ $vendedor->vendedor_id }}">{{ $vendedor->nombre }}</option>
                 @endforeach
             </select>
         </div>

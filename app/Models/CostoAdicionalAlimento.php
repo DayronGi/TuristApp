@@ -9,5 +9,5 @@ class CostoAdicionalAlimento extends Model
 {
     use HasFactory;
 
-    protected $table = 'costosadicionalesalimentos';
+    protected $table = 'costos_adicionales_alimentos';
 }

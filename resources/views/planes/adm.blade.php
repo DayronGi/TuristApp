@@ -8,20 +8,20 @@
             <div class="col-md-4">
                 <div class="card mb-4 shadow-sm">
                     <div class="card-header bg-dark text-white">
-                        <h5 class="my-0">Plan Nro.{{ $plan->planid }}</h5>
+                        <h5 class="my-0">Plan Nro.{{ $plan->plan_id }}</h5>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">{{ $plan->título }}</h5>
-                        <p class="card-text">{{ $plan->descripción }}</p>
+                        <h5 class="card-title">{{ $plan->titulo }}</h5>
+                        <p class="card-text">{{ $plan->descripcion }}</p>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Duración: {{ $plan->duración }} días</li>
-                            <li class="list-group-item">Incluye Desayuno: {{ $plan->incluyedesayuno == 'true' ? 'Sí' : 'No' }}</li>
-                            <li class="list-group-item">Incluye Almuerzo: {{ $plan->incluyealmuerzo == 'true' ? 'Sí' : 'No' }}</li>
-                            <li class="list-group-item">Incluye Cena: {{ $plan->incluyecena == 'true' ? 'Sí' : 'No' }}</li>
+                            <li class="list-group-item">Duración: {{ $plan->duracion }} días</li>
+                            <li class="list-group-item">Incluye Desayuno: {{ $plan->incluye_desayuno == 'true' ? 'Sí' : 'No' }}</li>
+                            <li class="list-group-item">Incluye Almuerzo: {{ $plan->incluye_almuerzo == 'true' ? 'Sí' : 'No' }}</li>
+                            <li class="list-group-item">Incluye Cena: {{ $plan->incluye_cena == 'true' ? 'Sí' : 'No' }}</li>
                         </ul>
                         <div class="mt-3 d-flex justify-content-end">
-                            <a href="{{ route('planes.edit', $plan->planid) }}" class="text-secondary mr-3"><i class="fas fa-edit"></i></a>
-                            <form action="{{ route('planes.delete', $plan->planid) }}" method="POST" onsubmit="return confirmDelete()">
+                            <a href="{{ route('planes.edit', $plan->plan_id) }}" class="text-secondary mr-3"><i class="fas fa-edit"></i></a>
+                            <form action="{{ route('planes.delete', $plan->plan_id) }}" method="POST" onsubmit="return confirmDelete()">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-link text-danger p-0"><i class="fas fa-trash-alt"></i></button>

@@ -45,7 +45,7 @@ class PuntoController extends Controller
         } else {
             return redirect()->back()->with('error', 'Contraseña incorrecta');
         }
-    }    
+    }
 
     public function add()
     {
@@ -64,17 +64,17 @@ class PuntoController extends Controller
     public function store(Request $request)
     {
         $punto = new Punto();
-        $punto->títuloactividad = $request->títuloactividad;
-        $punto->descripciónactividad = $request->descripciónactividad;
+        $punto->titulo_actividad = $request->titulo_actividad;
+        $punto->descripcion_actividad = $request->descripcion_actividad;
         $punto->estado = 'Activo';
-        $punto->departamentoid = $request->departamentoid;
-        $punto->ciudadid = $request->ciudadid;
-        $punto->fechacreación = \Carbon\Carbon::now();
+        $punto->departamento_id = $request->departamento_id;
+        $punto->ciudad_id = $request->ciudad_id;
+        $punto->fecha_creacion = \Carbon\Carbon::now();
         $punto->save();
 
         $plan = new PlanPunto();
-        $plan->planid = $request->planid;
-        $plan->puntoid = $punto->puntoid;
+        $plan->plan_id = $request->plan_id;
+        $plan->punto_id = $punto->punto_id;
         $plan->save();
         return redirect()->route('puntos.list');
     }
@@ -90,24 +90,24 @@ class PuntoController extends Controller
 
     public function edit($id)
     {
-        $punto = Punto::where('puntoid', $id)->first();
+        $punto = Punto::where('punto_id', $id)->first();
         return view('puntos.edit', compact('punto'));
     }
 
     public function update(Request $request, $id) {
-        $punto = Punto::where('puntoid', $id)->first();
+        $punto = Punto::where('punto_id', $id)->first();
         $punto->update([
-            'títuloactividad' => $request->input('títuloactividad'),
-            'descripciónactividad' => $request->input('descripciónactividad'),
+            'titulo_actividad' => $request->input('titulo_actividad'),
+            'descripcion_actividad' => $request->input('descripcion_actividad'),
             'estado' => $request->input('estado'),
-            'fechamodificación' => \Carbon\Carbon::now()
+            'fecha_modificacion' => \Carbon\Carbon::now()
         ]);
         return redirect()->route('puntos.adm');
     }
 
     public function destroy($id)
     {
-        $punto = Punto::where('puntoid', $id)->first();
+        $punto = Punto::where('punto_id', $id)->first();
         $punto->delete();
         return redirect()->route('puntos.adm');
     }

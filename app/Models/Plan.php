@@ -10,26 +10,26 @@ class Plan extends Model
 {
     use HasFactory;
 
-    protected $table = 'planesturisticos';
+    protected $table = 'planes_turisticos';
 
-    protected $primaryKey = 'planid';
-    
+    protected $primaryKey = 'plan_id';
+
     protected $fillable = [
-        'título',
-        'descripción',
-        'duración',
-        'incluyedesayuno',
-        'incluyealmuerzo',
-        'incluyecena',
+        'titulo',
+        'descripcion',
+        'duracion',
+        'incluye_desayuno',
+        'incluye_almuerzo',
+        'incluye_cena',
         'estado',
-        'fechacreación',
-        'fechamodificación',
+        'fecha_creacion',
+        'fecha_modificacion',
     ];
 
     public $timestamps = false;
 
     public function tarifas()
     {
-        return $this->hasMany(Tarifa::class, 'planid', 'planid');
+        return $this->hasMany(Tarifa::class, 'plan_id', 'plan_id');
     }
 }

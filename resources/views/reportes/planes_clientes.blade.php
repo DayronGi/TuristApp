@@ -28,10 +28,10 @@
                     <tbody>
                         @foreach ($compras as $compra)
                             <tr>
-                                <td class="text-center">{{ $compra->compraid }}</td>
+                                <td class="text-center">{{ $compra->compra_id }}</td>
                                 <td class="text-center">{{ $compra->cliente->nombre }}</td>
-                                <td class="text-center">{{ $compra->detalle->plan->título }}</td>
-                                <td class="text-center">{{ $compra->fechacompra }}</td>
+                                <td class="text-center">{{ $compra->detalle->plan->titulo }}</td>
+                                <td class="text-center">{{ $compra->fecha_compra }}</td>
                             </tr>
                         @endforeach
                     </tbody>

@@ -31,54 +31,54 @@ class CompraController extends Controller
             'vendedores' => $vendedores,
             'planes' => $planes,
         ]);
-    }    
-    
+    }
+
     public function store(Request $request)
     {
         $plan = Plan::findOrFail($request->planid);
-    
+
         $costoDesayuno = 0;
         $costoAlmuerzo = 0;
         $costoCena = 0;
-    
+
         if (!$plan->incluyedesayuno) {
-            $costoDesayuno = CostoAdicionalAlimento::where('planid', $request->planid)->value('costodesayunoadicional');
+            $costoDesayuno = CostoAdicionalAlimento::where('plan_id', $request->planid)->value('costo_desayuno_adicional');
         }
         if (!$plan->incluyealmuerzo) {
-            $costoAlmuerzo = CostoAdicionalAlimento::where('planid', $request->planid)->value('costoalmuerzoadicional');
+            $costoAlmuerzo = CostoAdicionalAlimento::where('plan_id', $request->planid)->value('costo_almuerzo_adicional');
         }
         if (!$plan->incluyecena) {
-            $costoCena = CostoAdicionalAlimento::where('planid', $request->planid)->value('costocenaadicional');
+            $costoCena = CostoAdicionalAlimento::where('plan_id', $request->planid)->value('costo_cena_adicional');
         }
-    
+
         $costoAlimentos = $costoDesayuno + $costoAlmuerzo + $costoCena;
-    
+
         $costoTotalPlan = $plan->tarifas()->where('temporada', $request->temporada)->first()->costo;
-    
+
         $costoOtrosConceptos = $costoAlimentos;
-        $totalCompra = ($costoTotalPlan + $costoOtrosConceptos) * $request->cantidadpersonas;
-    
+        $totalCompra = ($costoTotalPlan + $costoOtrosConceptos) * $request->cantidad_personas;
+
         $compra = new Compra();
-        $compra->clienteid = $request->clienteid;
-        $compra->vendedorid = $request->vendedorid;
-        $compra->fechacompra = now();
-        $compra->costototalplan = $costoTotalPlan;
-        $compra->costootrosconceptos = $costoOtrosConceptos;
-        $compra->totalcompra = $totalCompra;
+        $compra->cliente_id = $request->cliente_id;
+        $compra->vendedor_id = $request->vendedor_id;
+        $compra->fecha_compra = now();
+        $compra->costo_total_plan = $costoTotalPlan;
+        $compra->costo_otros_conceptos = $costoOtrosConceptos;
+        $compra->total_compra = $totalCompra;
         $compra->save();
-    
+
         $detalle = new DetalleCompra();
-        $detalle->compraid = $compra->compraid;
-        $detalle->planid = $request->planid;
-        $detalle->fechainicioviaje = $request->fechainicioviaje;
-        $detalle->fechafinviaje = $request->fechafinviaje;
-        $detalle->valortotalplan = $costoTotalPlan;
-        $detalle->valordesayunoadicional = $costoDesayuno;
-        $detalle->valoralmuerzoadicional = $costoAlmuerzo;
-        $detalle->valorcenaadicional = $costoCena;
-        $detalle->cantidadpersonas = $request->cantidadpersonas;
+        $detalle->compra_id = $compra->compra_id;
+        $detalle->plan_id = $request->plan_id;
+        $detalle->fecha_inicio_viaje = $request->fecha_inicio_viaje;
+        $detalle->fecha_fin_viaje = $request->fecha_fin_viaje;
+        $detalle->valor_total_plan = $costoTotalPlan;
+        $detalle->valor_desayuno_adicional = $costoDesayuno;
+        $detalle->valor_almuerzo_adicional = $costoAlmuerzo;
+        $detalle->valor_cena_adicional = $costoCena;
+        $detalle->cantidad_personas = $request->cantidad_personas;
         $detalle->save();
-    
+
         return redirect()->route('compras.list');
     }
 }

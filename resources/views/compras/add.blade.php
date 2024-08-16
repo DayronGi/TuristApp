@@ -11,25 +11,25 @@
                         @csrf
                         <div class="form-group">
                             <label>Cliente</label>
-                            <select class="form-control" name="clienteid" required>
+                            <select class="form-control" name="cliente_id" required>
                                 @foreach($clientes as $cliente)
-                                    <option value="{{ $cliente->clienteid }}">{{ $cliente->nombre }}</option>
+                                    <option value="{{ $cliente->cliente_id }}">{{ $cliente->nombre }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Vendedor</label>
-                            <select class="form-control" name="vendedorid" required>
+                            <select class="form-control" name="vendedor_id" required>
                                 @foreach($vendedores as $vendedor)
-                                    <option value="{{ $vendedor->vendedorid }}">{{ $vendedor->nombre }}</option>
+                                    <option value="{{ $vendedor->vendedor_id }}">{{ $vendedor->nombre }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Plan Turístico</label>
-                            <select class="form-control" name="planid" required>
+                            <select class="form-control" name="plan_id" required>
                                 @foreach($planes as $plan)
-                                    <option value="{{ $plan->planid }}">{{ $plan->título }}</option>
+                                    <option value="{{ $plan->plan_id }}">{{ $plan->titulo }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -43,15 +43,15 @@
                         </div>
                         <div class="form-group">
                             <label>Fecha inicio del viaje</label>
-                            <input type="date" class="form-control" name="fechainicioviaje" required>
+                            <input type="date" class="form-control" name="fecha_inicio_viaje" required>
                         </div>
                         <div class="form-group">
                             <label>Fecha fin del viaje</label>
-                            <input type="date" class="form-control" name="fechafinviaje" required>
+                            <input type="date" class="form-control" name="fecha_fin_viaje" required>
                         </div>
                         <div class="form-group">
                             <label>Cantidad de Personas</label>
-                            <input type="number" class="form-control" name="cantidadpersonas" required>
+                            <input type="number" class="form-control" name="cantidad_personas" required>
                         </div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-primary">Crear</button>

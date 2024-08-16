@@ -11,31 +11,31 @@
                             @csrf
                             <div class="form-group">
                                 <label>Título</label>
-                                <input type="text" class="form-control" name="títuloactividad" required>
+                                <input type="text" class="form-control" name="titulo_actividad" required>
                             </div>
                             <div class="form-group">
                                 <label>Descripción</label>
-                                <textarea class="form-control" name="descripciónactividad" rows="3" required></textarea>
+                                <textarea class="form-control" name="descripcion_actividad" rows="3" required></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Ciudad</label>
-                                <select class="form-control" id="ciudad" name="ciudadid" required>
+                                <select class="form-control" id="ciudad" name="ciudad_id" required>
                                     <option value="">Selecciona una ciudad</option>
                                     @foreach ($ciudades as $ciudad)
-                                        <option value="{{ $ciudad->ciudadid }}"
-                                            data-departamento="{{ $ciudad->departamentoid }}">{{ $ciudad->ciudad }}</option>
+                                        <option value="{{ $ciudad->ciudad_id }}"
+                                            data-departamento="{{ $ciudad->departamento_id }}">{{ $ciudad->ciudad }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Plan turístico</label>
-                                <select class="form-control" name="planid">
+                                <select class="form-control" name="plan_id">
                                     @foreach ($planes as $plan)
-                                        <option value="{{ $plan->planid }}">{{ $plan->título }}</option>
+                                        <option value="{{ $plan->plan_id }}">{{ $plan->titulo }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <input type="hidden" id="departamento" name="departamentoid">
+                            <input type="hidden" id="departamento" name="departamento_id">
                             <div class="form-group">
                                 <label>Estado</label>
                                 <select class="form-control" name="estado" required>

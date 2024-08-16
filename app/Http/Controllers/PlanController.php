@@ -41,7 +41,7 @@ class PlanController extends Controller
         } else {
             return redirect()->back()->with('error', 'Contraseña incorrecta');
         }
-    }    
+    }
 
     public function adm()
     {
@@ -60,44 +60,44 @@ class PlanController extends Controller
     public function store(Request $request)
     {
         $plan = new Plan();
-        $plan->título = $request->título;
-        $plan->descripción = $request->descripción;
-        $plan->duración = $request->duración;
-        $plan->incluyedesayuno = $request->incluyedesayuno;
-        $plan->incluyealmuerzo = $request->incluyealmuerzo;
-        $plan->incluyecena = $request->incluyecena;
+        $plan->titulo = $request->titulo;
+        $plan->descripcion = $request->descripcion;
+        $plan->duracion = $request->duracion;
+        $plan->incluye_desayuno = $request->incluye_desayuno;
+        $plan->incluye_almuerzo = $request->incluye_almuerzo;
+        $plan->incluye_cena = $request->incluye_cena;
         $plan->estado = 'Activo';
-        $plan->fechacreación = \Carbon\Carbon::now();
+        $plan->fechacreacion = \Carbon\Carbon::now();
         $plan->save();
         return redirect()->route('planes.list');
     }
 
     public function edit($id)
     {
-        $plan = Plan::where('planid', $id)->first();
+        $plan = Plan::where('plan_id', $id)->first();
         return view('planes.edit', compact('plan'));
     }
 
 
     public function update(Request $request, $id)
     {
-        $plan = Plan::where('planid', $id)->first();
+        $plan = Plan::where('plan_id', $id)->first();
         $plan->update([
-            'título' => $request->input('título'),
-            'descripción' => $request->input('descripción'),
-            'duración' => $request->input('duración'),
-            'incluyedesayuno' => $request->input('incluyedesayuno'),
-            'incluyealmuerzo' => $request->input('incluyealmuerzo'),
-            'incluyecena' => $request->input('incluyecena'),
+            'titulo' => $request->input('titulo'),
+            'descripcion' => $request->input('descripcion'),
+            'duracion' => $request->input('duracion'),
+            'incluye_desayuno' => $request->input('incluye_desayuno'),
+            'incluye_almuerzo' => $request->input('incluye_almuerzo'),
+            'incluye_cena' => $request->input('incluye_cena'),
             'estado' => $request->input('estado'),
-            'fechamodificación' => \Carbon\Carbon::now()
+            'fecha_modificacion' => \Carbon\Carbon::now()
         ]);
         return redirect()->route('planes.adm');
     }
 
     public function destroy($id)
     {
-        $plan = Plan::where('planid', $id)->first();
+        $plan = Plan::where('plan_id', $id)->first();
         $plan->delete();
         return redirect()->route('planes.adm');
     }

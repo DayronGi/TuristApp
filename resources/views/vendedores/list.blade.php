@@ -18,9 +18,9 @@
                 @foreach ($vendedores as $vendedor)
                     <tr>
                         <td class="text-center">{{ $vendedor->nombre }}</td>
-                        <td class="text-center">{{ $vendedor->fechanacimiento }}</td>
-                        <td class="text-center">{{ $vendedor->vendedorid }}</td>
-                        <td class="text-center">{{ $vendedor->teléfono }}</td>
+                        <td class="text-center">{{ $vendedor->fecha_nacimiento }}</td>
+                        <td class="text-center">{{ $vendedor->vendedor_id }}</td>
+                        <td class="text-center">{{ $vendedor->telefono }}</td>
                         <td class="text-center">{{ $vendedor->correo }}</td>
                     </tr>
                 @endforeach

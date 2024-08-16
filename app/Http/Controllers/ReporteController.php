@@ -18,9 +18,9 @@ class ReporteController extends Controller
             $vendedorid = $request->input('vendedor');
             $mes = $request->input('mes');
 
-            $compras = Compra::where('vendedorid', $vendedorid)
-                ->whereMonth('fechacompra', date('m', strtotime($mes)))
-                ->whereYear('fechacompra', date('Y', strtotime($mes)))
+            $compras = Compra::where('vendedor_id', $vendedorid)
+                ->whereMonth('fecha_compra', date('m', strtotime($mes)))
+                ->whereYear('fecha_compra', date('Y', strtotime($mes)))
                 ->get();
 
             return view('reportes.venta_mes', compact('vendedores', 'compras'));
@@ -32,19 +32,19 @@ class ReporteController extends Controller
     public function actividades_menos(Request $request)
     {
         $vendedores = Vendedor::all();
-        $vendedorid = $request->input('vendedorid');
+        $vendedorid = $request->input('vendedor_id');
         $mes = $request->input('mes');
         $año = $request->input('año');
 
-        $actividades = DB::table('detallecompra as d')
-            ->join('compras as c', 'd.compraid', '=', 'c.compraid')
-            ->join('planespuntosvisita as ppv', 'd.planid', '=', 'ppv.planid')
-            ->join('puntosvisita as pv', 'ppv.puntoid', '=', 'pv.puntoid')
-            ->select('pv.títuloactividad as actividad', DB::raw('COUNT(d.planid) as totalinclusiones'))
-            ->where('c.vendedorid', $vendedorid)
-            ->whereMonth('c.fechacompra', $mes)
-            ->whereYear('c.fechacompra', $año)
-            ->groupBy('pv.títuloactividad')
+        $actividades = DB::table('detalle_compra as d')
+            ->join('compras as c', 'd.compra_id', '=', 'c.compra_id')
+            ->join('planes_puntos_visita as ppv', 'd.plan_id', '=', 'ppv.plan_id')
+            ->join('puntos_visita as pv', 'ppv.punto_id', '=', 'pv.punto_id')
+            ->select('pv.titulo_actividad as actividad', DB::raw('COUNT(d.plan_id) as totalinclusiones'))
+            ->where('c.vendedor_id', $vendedorid)
+            ->whereMonth('c.fecha_compra', $mes)
+            ->whereYear('c.fecha_compra', $año)
+            ->groupBy('pv.titulo_actividad')
             ->orderBy('totalinclusiones', 'asc')
             ->limit(10)
             ->get();
@@ -57,14 +57,14 @@ class ReporteController extends Controller
 
     public function planes_cargos()
     {
-        $planes = DB::table('detallecompra')
-            ->join('planesturisticos', 'detallecompra.planid', '=', 'planesturisticos.planid')
-            ->join('compras', 'detallecompra.compraid', '=', 'compras.compraid')
-            ->join('clientes', 'compras.clienteid', '=', 'clientes.clienteid')
-            ->select('planesturisticos.título as Plan', 'clientes.nombre as Cliente', 'compras.fechacompra as FechaCompra')
-            ->whereRaw('detallecompra.valordesayunoadicional > 0')
-            ->orWhereRaw('detallecompra.valoralmuerzoadicional > 0')
-            ->orWhereRaw('detallecompra.valorcenaadicional > 0')
+        $planes = DB::table('detalle_compra')
+            ->join('planes_turisticos', 'detalle_compra.plan_id', '=', 'planes_turisticos.plan_id')
+            ->join('compras', 'detalle_compra.compra_id', '=', 'compras.compra_id')
+            ->join('clientes', 'compras.cliente_id', '=', 'clientes.cliente_id')
+            ->select('planes_turisticos.titulo as Plan', 'clientes.nombre as Cliente', 'compras.fecha_compra as FechaCompra')
+            ->whereRaw('detalle_compra.valor_desayuno_adicional > 0')
+            ->orWhereRaw('detalle_compra.valor_almuerzo_adicional > 0')
+            ->orWhereRaw('detalle_compra.valor_cena_adicional > 0')
             ->get();
 
         return view('reportes.planes_cargos', [
@@ -72,23 +72,23 @@ class ReporteController extends Controller
         ]);
     }
 
-    public function planes_clientes(Request $request) 
+    public function planes_clientes(Request $request)
     {
         $clientes = Cliente::all();
-    
-        if ($request->has('clienteid')) {
-            $clienteid = $request->input('clienteid');
-            $cliente = Cliente::where('clienteid', $clienteid)->first();
-    
+
+        if ($request->has('cliente_id')) {
+            $clienteid = $request->input('cliente_id');
+            $cliente = Cliente::where('cliente_id', $clienteid)->first();
+
             if (!$cliente) {
                 abort(404, 'Cliente no encontrado');
             }
-    
-            $compras = Compra::where('clienteid', $clienteid)->get();
-    
+
+            $compras = Compra::where('cliente_id', $clienteid)->get();
+
             return view('reportes.planes_clientes', compact('clientes', 'compras'));
         }
-    
+
         return view('reportes.planes_clientes', compact('clientes'));
-    }    
+    }
 }

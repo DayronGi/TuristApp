@@ -9,13 +9,13 @@ class PlanPunto extends Model
 {
     use HasFactory;
 
-    protected $table = 'planespuntosvisita';
+    protected $table = 'planes_puntos_visita';
 
-    protected $primaryKey = 'puntoid';
-    
+    protected $primaryKey = 'punto_id';
+
     protected $fillable = [
-        'planid',
-        'puntoid',
+        'plan_id',
+        'punto_id',
     ];
 
     public $timestamps = false;

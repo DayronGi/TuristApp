@@ -10,26 +10,26 @@ class DetalleCompra extends Model
 {
     use HasFactory;
 
-    protected $table = 'detallecompra';
+    protected $table = 'detalle_compra';
 
-    protected $primaryKey = 'detalleid';
+    protected $primaryKey = 'detalle_id';
 
     protected $fillable = [
-        'compraid',
-        'planid',
-        'fechainicioviaje',
-        'fechafinviaje',
-        'valortotalplan',
-        'valordesayunoadicional',
-        'valoralmuerzoadicional',
-        'valorcenaadicional',
-        'cantidadpersonas',
+        'compra_id',
+        'plan_id',
+        'fecha_inicio_viaje',
+        'fecha_fin_viaje',
+        'valor_total_plan',
+        'valor_desayuno_adicional',
+        'valor_almuerzo_adicional',
+        'valor_cena_adicional',
+        'cantidad_personas',
     ];
 
     public $timestamps = false;
 
     public function plan(): BelongsTo
     {
-        return $this->belongsTo(Plan::class, 'planid', 'planid');
+        return $this->belongsTo(Plan::class, 'plan_id', 'plan_id');
     }
 }

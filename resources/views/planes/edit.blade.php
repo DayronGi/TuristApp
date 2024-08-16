@@ -7,40 +7,40 @@
         <div class="col-md-6">
             <div class="card shadow-lg p-3 mb-5 bg-white rounded">
                 <div class="card-body">
-                    <form method="POST" action="{{ route('planes.update', $plan->planid) }}">
+                    <form method="POST" action="{{ route('planes.update', $plan->plan_id) }}">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
                             <label>Título</label>
-                            <input type="text" class="form-control" name="título" value="{{ $plan->título }}">
+                            <input type="text" class="form-control" name="titulo" value="{{ $plan->titulo }}">
                         </div>
                         <div class="form-group">
                             <label>Descripción</label>
-                            <textarea class="form-control" name="descripción">{{ $plan->descripción }}</textarea>
+                            <textarea class="form-control" name="descripcion">{{ $plan->descripcion }}</textarea>
                         </div>
                         <div class="form-group">
                             <label>Días de duración</label>
-                            <input type="text" class="form-control" name="duración" value="{{ $plan->duración }}">
+                            <input type="text" class="form-control" name="duracion" value="{{ $plan->duracion }}">
                         </div>
                         <div class="form-group">
                             <label>Incluye desayuno</label>
-                            <select class="form-control" name="incluyedesayuno">
-                                <option value="TRUE" {{ $plan->incluyedesayuno == 'TRUE' ? 'selected' : '' }}>Si</option>
-                                <option value="FALSE" {{ $plan->incluyedesayuno == 'FALSE' ? 'selected' : '' }}>No</option>
+                            <select class="form-control" name="incluye_desayuno">
+                                <option value="TRUE" {{ $plan->incluye_desayuno == 'TRUE' ? 'selected' : '' }}>Si</option>
+                                <option value="FALSE" {{ $plan->incluye_desayuno == 'FALSE' ? 'selected' : '' }}>No</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Incluye almuerzo</label>
-                            <select class="form-control" name="incluyealmuerzo">
-                                <option value="TRUE" {{ $plan->incluyealmuerzo == 'TRUE' ? 'selected' : '' }}>Si</option>
-                                <option value="FALSE" {{ $plan->incluyealmuerzo == 'FALSE' ? 'selected' : '' }}>No</option>
+                            <select class="form-control" name="incluye_almuerzo">
+                                <option value="TRUE" {{ $plan->incluye_almuerzo == 'TRUE' ? 'selected' : '' }}>Si</option>
+                                <option value="FALSE" {{ $plan->incluye_almuerzo == 'FALSE' ? 'selected' : '' }}>No</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Incluye cena</label>
-                            <select class="form-control" name="incluyecena">
-                                <option value="TRUE" {{ $plan->incluyecena == 'TRUE' ? 'selected' : '' }}>Si</option>
-                                <option value="FALSE" {{ $plan->incluyecena == 'FALSE' ? 'selected' : '' }}>No</option>
+                            <select class="form-control" name="incluye_cena">
+                                <option value="TRUE" {{ $plan->incluye_cena == 'TRUE' ? 'selected' : '' }}>Si</option>
+                                <option value="FALSE" {{ $plan->incluye_cena == 'FALSE' ? 'selected' : '' }}>No</option>
                             </select>
                         </div>
                         <div class="form-group">

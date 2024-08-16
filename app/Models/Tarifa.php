@@ -12,20 +12,20 @@ class Tarifa extends Model
 
     protected $table = 'tarifas';
 
-    protected $primaryKey = 'tarifaid';
+    protected $primaryKey = 'tarifa_id';
 
     protected $fillable = [
-        'planid',
+        'plan_id',
         'temporada',
         'costo',
-        'fechainicio',
-        'fechafin',
+        'fecha_inicio',
+        'fecha_fin',
     ];
 
     public $timestamps = false;
 
     public function plan(): BelongsTo
     {
-        return $this->belongsTo(Plan::class, 'planid', 'planid');
+        return $this->belongsTo(Plan::class, 'plan_id', 'plan_id');
     }
 }

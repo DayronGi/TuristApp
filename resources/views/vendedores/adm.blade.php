@@ -19,13 +19,13 @@
                 @foreach ($vendedores as $vendedor)
                     <tr>
                         <td class="text-center">{{ $vendedor->nombre }}</td>
-                        <td class="text-center">{{ $vendedor->fechanacimiento }}</td>
-                        <td class="text-center">{{ $vendedor->vendedorid }}</td>
-                        <td class="text-center">{{ $vendedor->teléfono }}</td>
+                        <td class="text-center">{{ $vendedor->fecha_nacimiento }}</td>
+                        <td class="text-center">{{ $vendedor->vendedor_id }}</td>
+                        <td class="text-center">{{ $vendedor->telefono }}</td>
                         <td class="text-center">{{ $vendedor->correo }}</td>
                         <td class="text-center">
-                            <a href="{{ route('vendedores.edit', $vendedor->vendedorid) }}" class="text-secondary mr-3"><i class="fas fa-edit"></i></a>
-                            <form action="{{ route('vendedores.delete', $vendedor->vendedorid) }}" method="POST" style="display:inline;" onsubmit="return confirmDelete()">
+                            <a href="{{ route('vendedores.edit', $vendedor->vendedor_id) }}" class="text-secondary mr-3"><i class="fas fa-edit"></i></a>
+                            <form action="{{ route('vendedores.delete', $vendedor->vendedor_id) }}" method="POST" style="display:inline;" onsubmit="return confirmDelete()">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-link text-danger p-0"><i class="fas fa-trash-alt"></i></button>

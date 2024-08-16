@@ -10,29 +10,29 @@ class Punto extends Model
 {
     use HasFactory;
 
-    protected $table = 'puntosvisita';
+    protected $table = 'puntos_visita';
 
-    protected $primaryKey = 'puntoid';
+    protected $primaryKey = 'punto_id';
 
     protected $fillable = [
-        'títuloactividad',
-        'descripciónactividad',
+        'titulo_actividad',
+        'descripcion_actividad',
         'estado',
-        'departamentoid',
-        'ciudadid',
-        'fechacreación',
-        'fechamodificación',
+        'departamento_id',
+        'ciudad_id',
+        'fecha_creacion',
+        'fecha_modificacion',
     ];
 
     public $timestamps = false;
 
     public function departamento(): BelongsTo
     {
-        return $this->belongsTo(Departamento::class, 'departamentoid', 'departamentoid');
+        return $this->belongsTo(Departamento::class, 'departamento_id', 'departamento_id');
     }
 
     public function ciudad(): BelongsTo
     {
-        return $this->belongsTo(Ciudad::class, 'ciudadid', 'ciudadid');
+        return $this->belongsTo(Ciudad::class, 'ciudad_id', 'ciudad_id');
     }
 }

@@ -7,12 +7,12 @@
         <div class="col-md-6">
             <div class="card shadow-lg p-3 mb-5 bg-white rounded">
                 <div class="card-body">
-                    <form method="POST" action="{{ route('clientes.update', $cliente->clienteid) }}">
+                    <form method="POST" action="{{ route('clientes.update', $cliente->cliente_id) }}">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
                             <label>Documento</label>
-                            <input type="text" class="form-control" name="clienteid" value="{{ $cliente->clienteid }}" readonly>
+                            <input type="text" class="form-control" name="cliente_id" value="{{ $cliente->cliente_id }}" readonly>
                         </div>
                         <div class="form-group">
                             <label>Nombre</label>
@@ -20,15 +20,15 @@
                         </div>
                         <div class="form-group">
                             <label for="fecha_nacimiento">Fecha de nacimiento</label>
-                            <input type="date" class="form-control" name="fechanacimiento" value="{{ $cliente->fechanacimiento }}" readonly>
+                            <input type="date" class="form-control" name="fecha_nacimiento" value="{{ $cliente->fecha_nacimiento }}" readonly>
                         </div>
                         <div class="form-group">
                             <label for="telefono_1">Teléfono 1</label>
-                            <input type="text" class="form-control" name="teléfono1" value="{{ $cliente->teléfono1 }}" required>
+                            <input type="text" class="form-control" name="telefono_1" value="{{ $cliente->telefono_1 }}" required>
                         </div>
                         <div class="form-group">
                             <label for="telefono_2">Teléfono 2</label>
-                            <input type="text" class="form-control" name="teléfono2" value="{{ $cliente->teléfono2 }}">
+                            <input type="text" class="form-control" name="telefono_2" value="{{ $cliente->telefono_2 }}">
                         </div>
                         <div class="form-group">
                             <label for="correo">Correo</label>
@@ -36,7 +36,7 @@
                         </div>
                         <div class="form-group">
                             <label for="id_vendedor">Documento Vendedor</label>
-                            <input type="text" class="form-control" name="vendedorid" value="{{ $cliente->vendedorid }}" readonly>
+                            <input type="text" class="form-control" name="vendedor_id" value="{{ $cliente->vendedor_id }}" readonly>
                         </div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-primary mr-2">Actualizar</button>

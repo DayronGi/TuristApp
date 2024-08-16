@@ -19,13 +19,13 @@
                 <tbody>
                     @foreach ($compras as $compra)
                         <tr>
-                            <td class="text-center align-middle">{{ $compra->compraid }}</td>
+                            <td class="text-center align-middle">{{ $compra->compra_id }}</td>
                             <td class="text-center align-middle">{{ $compra->cliente->nombre }}</td>
                             <td class="text-center align-middle">{{ $compra->vendedor->nombre }}</td>
-                            <td class="text-center align-middle">{{ $compra->fechacompra }}</td>
-                            <td class="text-center align-middle">{{ $compra->costototalplan }}</td>
-                            <td class="text-center align-middle">{{ $compra->costootrosconceptos }}</td>
-                            <td class="text-center align-middle">{{ $compra->totalcompra }}</td>
+                            <td class="text-center align-middle">{{ $compra->fecha_compra }}</td>
+                            <td class="text-center align-middle">{{ $compra->costo_total_plan }}</td>
+                            <td class="text-center align-middle">{{ $compra->costo_otros_conceptos }}</td>
+                            <td class="text-center align-middle">{{ $compra->total_compra }}</td>
                         </tr>
                     @endforeach
                 </tbody>

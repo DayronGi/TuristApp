@@ -19,15 +19,15 @@
             <tbody>
                 @foreach ($tarifas as $tarifa)
                     <tr>
-                        <td class="text-center">{{ $tarifa->tarifaid }}</td>
-                        <td class="text-center">{{ $tarifa->plan->título }}</td>
+                        <td class="text-center">{{ $tarifa->tarifa_id }}</td>
+                        <td class="text-center">{{ $tarifa->plan->titulo }}</td>
                         <td class="text-center">{{ $tarifa->temporada }}</td>
                         <td class="text-center">{{ $tarifa->costo }}</td>
-                        <td class="text-center">{{ $tarifa->fechainicio }}</td>
-                        <td class="text-center">{{ $tarifa->fechafin }}</td>
+                        <td class="text-center">{{ $tarifa->fecha_inicio }}</td>
+                        <td class="text-center">{{ $tarifa->fecha_fin }}</td>
                         <td class="text-center">
-                            <a href="{{ route('tarifas.edit', $tarifa->tarifaid) }}" class="text-secondary mr-3"><i class="fas fa-edit"></i></a>
-                            <form action="{{ route('tarifas.delete', $tarifa->tarifaid) }}" method="POST" style="display:inline;" onsubmit="return confirmDelete()">
+                            <a href="{{ route('tarifas.edit', $tarifa->tarifa_id) }}" class="text-secondary mr-3"><i class="fas fa-edit"></i></a>
+                            <form action="{{ route('tarifas.delete', $tarifa->tarifa_id) }}" method="POST" style="display:inline;" onsubmit="return confirmDelete()">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-link text-danger p-0"><i class="fas fa-trash-alt"></i></button>

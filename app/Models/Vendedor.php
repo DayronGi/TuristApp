@@ -11,13 +11,13 @@ class Vendedor extends Model
 
     protected $table = 'vendedores';
 
-    protected $primaryKey = 'vendedorid';
+    protected $primaryKey = 'vendedor_id';
 
     protected $fillable = [
         'nombre',
         'correo',
-        'fechanacimiento',
-        'teléfono',
+        'fecha_nacimiento',
+        'telefono',
         'usuario',
         'contraseña'
     ];

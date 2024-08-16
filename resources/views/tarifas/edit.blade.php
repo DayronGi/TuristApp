@@ -7,16 +7,16 @@
         <div class="col-md-6">
             <div class="card shadow-lg p-3 mb-5 bg-white rounded">
                 <div class="card-body">
-                    <form method="POST" action="{{ route('tarifas.update', $tarifa->tarifaid) }}">
+                    <form method="POST" action="{{ route('tarifas.update', $tarifa->tarifa_id) }}">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
                             <label>Tarifa Nro.</label>
-                            <input type="text" class="form-control" name="tarifaid" value="{{ $tarifa->tarifaid }}" readonly>
+                            <input type="text" class="form-control" name="tarifaid" value="{{ $tarifa->tarifa_id }}" readonly>
                         </div>
                         <div class="form-group">
                             <label>Plan turístico</label>
-                            <input type="text" class="form-control" name="planid" value="{{ $tarifa->plan->título }}" readonly>
+                            <input type="text" class="form-control" name="planid" value="{{ $tarifa->plan->titulo }}" readonly>
                         </div>
                         <div class="form-group">
                             <label>Temporada</label>
@@ -32,11 +32,11 @@
                         </div>
                         <div class="form-group">
                             <label>Fecha inicio</label>
-                            <input type="date" class="form-control" name="fechainicio" value="{{ $tarifa->fechainicio }}" required>
+                            <input type="date" class="form-control" name="fecha_inicio" value="{{ $tarifa->fecha_inicio }}" required>
                         </div>
                         <div class="form-group">
                             <label>Fecha fin</label>
-                            <input type="date" class="form-control" name="fechafin" value="{{ $tarifa->fechafin }}" required>
+                            <input type="date" class="form-control" name="fecha_fin" value="{{ $tarifa->fecha_fin }}" required>
                         </div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-primary mr-2">Actualizar</button>
