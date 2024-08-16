@@ -15,9 +15,9 @@
                         <p class="card-text">{{ $plan->descripcion }}</p>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Duración: {{ $plan->duracion }} días</li>
-                            <li class="list-group-item">Incluye Desayuno: {{ $plan->incluye_desayuno == 'true' ? 'Sí' : 'No' }}</li>
-                            <li class="list-group-item">Incluye Almuerzo: {{ $plan->incluye_almuerzo == 'true' ? 'Sí' : 'No' }}</li>
-                            <li class="list-group-item">Incluye Cena: {{ $plan->incluye_cena == 'true' ? 'Sí' : 'No' }}</li>
+                            <li class="list-group-item">Incluye Desayuno: {{ $plan->incluye_desayuno == '1' ? 'Sí' : 'No' }}</li>
+                            <li class="list-group-item">Incluye Almuerzo: {{ $plan->incluye_almuerzo == '1' ? 'Sí' : 'No' }}</li>
+                            <li class="list-group-item">Incluye Cena: {{ $plan->incluye_cena == '1' ? 'Sí' : 'No' }}</li>
                         </ul>
                     </div>
                 </div>
